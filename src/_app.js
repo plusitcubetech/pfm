@@ -51,7 +51,7 @@ export function App() {
     //   });
     await axios({
       // url: url.replace("http://d3d7iaj1xyzes9.cloudfront.net/", ""),
-      url,
+      url:url.replace('http://','https://'),
       method: "GET",
       responseType: "blob", // important
       onDownloadProgress: (progressEvent) => {
@@ -91,7 +91,7 @@ export function App() {
         // listData.push(res.data[0]);
         let song = res.data[0];
         axios({
-          url: song?.playurl,
+          url: song?.playurl.replace('http://','https://'),
           method: "GET",
           responseType: "blob", // important
           onDownloadProgress: (progressEvent) => {
@@ -128,7 +128,7 @@ export function App() {
   const apiDataDownload = async (index, data) => {
     let song = data[index];
     axios({
-      url: song?.playurl,
+      url: song?.playurl.replace('http://','https://'),
       method: "GET",
       responseType: "blob", // important
       onDownloadProgress: (progressEvent) => {
