@@ -25,7 +25,7 @@ export function Kukufm() {
     let page = params?.page || 1;
 
     axios
-      .get(`api/v2.1/channels/${show_id}/episodes/?lang=english&page=${page}`)
+      .get(`https://kukufm.com/api/v2.1/channels/${show_id}/episodes/?lang=english&page=${page}`)
       .then((res) => {
         let data = res.data.episodes;
 
@@ -36,7 +36,7 @@ export function Kukufm() {
   const handleDownload = async (url, filename, key) => {
     await axios({
       // url: url.replace("http://d3d7iaj1xyzes9.cloudfront.net/", ""),
-      url: url,
+      url: 'https://kukufm.com'+url,
       method: "GET",
       responseType: "text", // important
       onDownloadProgress: (progressEvent) => {
